@@ -47,3 +47,6 @@ The project can be further customized by modifying the configuration files:
 - `Dockerfile`: Contains the Dockerfile for building the PHP Apache environment.
 - `php.ini`: Contains the PHP configuration settings.
 - `docker-compose.yml`: Contains the configuration for Docker Compose.
+
+## Project preview
+![Alt Text](preview.png)
