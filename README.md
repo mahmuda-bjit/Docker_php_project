@@ -49,4 +49,4 @@ The project can be further customized by modifying the configuration files:
 - `docker-compose.yml`: Contains the configuration for Docker Compose.
 
 ## Project preview
-<!-- ![Alt Text](AWS_docker_php_project/preview.png) -->
+![Alt Text](preview_product.PNG)
