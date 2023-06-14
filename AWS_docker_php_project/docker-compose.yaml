@@ -8,10 +8,10 @@ services:
           - db_data:/var/lib/mysql
           - ./conf/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
         environment:
-            MYSQL_ROOT_PASSWORD: "${DB_ROOT_PW}"
-            MYSQL_DATABASE: "${DB_NAME}"
-            MYSQL_USER: "${DB_USER}"
-            MYSQL_PASSWORD: "${DB_PW}"
+            MYSQL_ROOT_PASSWORD: "123456"
+            MYSQL_DATABASE: "ecomdb"
+            MYSQL_USER: "ecomuser"
+            MYSQL_PASSWORD: "ecompassword"
         ports:
             - "3306:3306"
 
