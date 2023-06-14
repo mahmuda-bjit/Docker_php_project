@@ -30,15 +30,15 @@ git clone https://github.com/mahmuda-bjit/Docker_php_project.git
 2. Navigate to the project directory:
 cd Docker_php_project
 
-3. Customize the PHP and Apache settings if needed by modifying the Dockerfile and php.ini files.
+3. Navigate to AWS_docker_php_project  directory. There will be 3 files: conf, docker-compose.yaml, php, preview.png.
 
 4. Start the containers using Docker Compose:
 docker-compose up -d
 
 5. Access the PHP application in your browser:
-http://localhost:90
+http://localhost:80
 
-Or to run with virtual machine ip address, use your virtual machine's ip address, for example: http:192.168.**.**:90
+Or to run with virtual machine ip address, use your virtual machine's ip address, for example: http:192.168.**.**:80
 
 ## Configuration
 
