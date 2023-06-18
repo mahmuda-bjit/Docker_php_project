@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+    mysqldb:
+        container_name: mysqldb
+        image: mysql:5.7
+        restart: always
+        volumes:
+          - db_data:/var/lib/mysql
+          - ./conf/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+        environment:
+            MYSQL_ROOT_PASSWORD: "123456"
+            MYSQL_DATABASE: "ecomdb"
+            MYSQL_USER: "ecomuser"
+            MYSQL_PASSWORD: "ecompassword"
+        ports:
+            - "3307:3306"
+
+    php-apache-environment:
+        container_name: php-apache
+        build:
+            context: ./php
+            dockerfile: Dockerfile
+        depends_on:
+            - mysqldb
+        ports:
+            - 90:80
+volumes:
+  db_data:
+
+
+USE ecomdb;
+CREATE TABLE products (id mediumint(8) unsigned NOT NULL auto_increment,Name
+varchar(255) default NULL,Price varchar(255) default NULL, ImageUrl varchar(255) default
+NULL,PRIMARY KEY (id)) AUTO_INCREMENT=1;
+INSERT INTO products (Name,Price,ImageUrl) VALUES ("Laptop","100","c-1.png"),
+("Drone","200","c-2.png"),("VR","300","c-3.png"),("Tablet","50","c-5.png"),("Watch","90","c-
+6.png"),("Phone Covers","20","c-7.png"),("Phone","80","c-8.png"),("Laptop","150","c-4.png");
+
+
+FROM php:8.0-apache
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y git
+RUN git clone https://github.com/Debaice06/Ansible_Projects_Ecommerce.git /var/www/html/
+RUN sed -i 's/172.20.1.101/mysqldb/g' /var/www/html/index.php
