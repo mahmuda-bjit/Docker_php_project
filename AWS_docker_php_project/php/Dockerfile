@@ -6,6 +6,6 @@ RUN apt-get update && apt-get upgrade -y
 # Install git
 RUN apt-get install -y git
 # Clone the repository to the /var/www/html/ directory
-RUN git clone https://github.com/mahmuda-bjit/Sample_Ecommerce_Project_docker.git /var/www/html/
+RUN git clone https://github.com/Debaice06/Sample_Ecommerce_Project.git /var/www/html/
 # Replace the IP address in index.php with 'mysqldb'
 RUN sed -i 's/172.20.1.101/mysqldb/g' /var/www/html/index.php
